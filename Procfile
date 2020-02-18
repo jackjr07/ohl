@@ -1,1 +1,1 @@
-web: gunicorn ohl1.wsgi
+web: gunicorn ohl.wsgi
