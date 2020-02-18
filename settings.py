@@ -21,8 +21,8 @@ print(
 )
 
 # ALLOWED_HOST = ["https://6e4c5806.ngrok.io","http://127.0.0.1:8000/survey/"]
-ALLOWED_HOSTS = ['*']
-DEBUG = Flase
+ALLOWED_HOSTS = ['https://ohl1.herokuapp.com/']
+DEBUG = False
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CSV_DIR = os.path.join(ROOT, "csv")
 
