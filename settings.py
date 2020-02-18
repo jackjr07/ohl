@@ -192,4 +192,4 @@ LOGGING = {
         }
     },
 }
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ohl.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "OHL.settings")
