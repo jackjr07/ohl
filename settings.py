@@ -107,7 +107,8 @@ STATICFILES_DIRS = [os.path.normpath(os.path.join(ROOT, "..", "survey", "static"
 ]
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '0+bc1mx-$7y)b&5#@80w5ja0zt2w=5*fr-cqa28ptp&gpzg0@b'
+# SECRET_KEY = '0+bc1mx-$7y)b&5#@80w5ja0zt2w=5*fr-cqa28ptp&gpzg0@b'
+SECRET_KEY = os.environ.get("SECRET_KEY", "some value if your key is not in the environment")
 
 TEMPLATES = [
     {
