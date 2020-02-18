@@ -66,4 +66,4 @@ LANGUAGES = (
     ("fr", "french"),
     ("ja", "Japanese"),
 )
-SECRET_KEY = '0+bc1mx-$7y)b&5#@80w5ja0zt2w=5*fr-cqa28ptp&gpzg0@b'
+# SECRET_KEY = '0+bc1mx-$7y)b&5#@80w5ja0zt2w=5*fr-cqa28ptp&gpzg0@b'
