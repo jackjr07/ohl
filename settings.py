@@ -107,7 +107,7 @@ STATICFILES_DIRS = [os.path.normpath(os.path.join(ROOT, "..", "survey", "static"
 ]
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = "js*79rk(+s+x9)8co+10$zghe2f)+33jd1l2m#f)vl+pvtj24e"
+SECRET_KEY = '0+bc1mx-$7y)b&5#@80w5ja0zt2w=5*fr-cqa28ptp&gpzg0@b'
 
 TEMPLATES = [
     {
@@ -191,4 +191,3 @@ LOGGING = {
         }
     },
 }
-SECRET_KEY = '0+bc1mx-$7y)b&5#@80w5ja0zt2w=5*fr-cqa28ptp&gpzg0@b'
