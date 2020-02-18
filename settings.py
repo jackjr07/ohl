@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import django_heroku
+
 import logging
 import os
 
@@ -191,5 +191,3 @@ LOGGING = {
         }
     },
 }
-
-django_heroku.settings(locals())
