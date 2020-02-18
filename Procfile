@@ -1,1 +1,1 @@
-web: gunicorn ohl:app
+web: gunicorn ohl.wsig
