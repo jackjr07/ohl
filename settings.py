@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import psycopg2
+
 import logging
 import os
 
@@ -22,52 +22,31 @@ print(
 
 # ALLOWED_HOST = ["https://6e4c5806.ngrok.io","http://127.0.0.1:8000/survey/"]
 ALLOWED_HOSTS = ['*'] #https://ohl1.herokuapp.com/
-DEBUG = False
+DEBUG = True
 ROOT = os.path.dirname(os.path.abspath(__file__))
-CSV_DIR = os.path.join(ROOT, "csv")
+CSV_DIRECTORY = os.path.join(ROOT, "csv")
+TEX_DIRECTORY = os.path.join(ROOT, "tex")
+
 
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(name)s.%(funcName)s() l.%(lineno)s -\033[32m %(message)s \033[39m",
 )
 
-if 'RDS_DB_NAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
-        }
-    }
-else:
-    DATABASES = {
+
+DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ohldb",
-        "USER": "jack",
-        "PASSWORD": "",
-        "HOST": "localhost",
-        "PORT": "",
+        "ENGINE": #"django.db.backends.sqlite3",
+        'django.db.backends.sqlite3',
+        #"django.db.backends.sqlite3", #'postgresql_psycopg2',
+        # 'mysql', 'sqlite3' or 'oracle'
+        "NAME": "survey.db",  # Or path to database file if using sqlite3
+        "USER": "",  # Not used with sqlite3
+        "PASSWORD": "",  # Not used with sqlite3.
+        "HOST": "",  # Set to empty string for localhost. Not used with sqlite3
+        "PORT": "",  # Set to empty string for default. Not used with sqlite3
     }
 }
-
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": #"django.db.backends.sqlite3",
-#         'django.db.backends.postgresql_psycopg2',
-#         #"django.db.backends.sqlite3", #'postgresql_psycopg2',
-#         # 'mysql', 'sqlite3' or 'oracle'
-#         "NAME": "survey.db",  # Or path to database file if using sqlite3
-#         "USER": "",  # Not used with sqlite3
-#         "PASSWORD": "",  # Not used with sqlite3.
-#         "HOST": "",  # Set to empty string for localhost. Not used with sqlite3
-#         "PORT": "",  # Set to empty string for default. Not used with sqlite3
-#     }
-# }
 
 USER_DID_NOT_ANSWER = "Left blank"
 
@@ -86,10 +65,9 @@ USE_TZ = True
 MEDIA_URL = "/media/"
 STATIC_URL = "/static/"
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(ROOT, "media")
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(ROOT, "static")
+
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -99,7 +77,7 @@ STATICFILES_FINDERS = (
 DEBUG_ADMIN_NAME = "test_admin"
 DEBUG_ADMIN_PASSWORD = "test_password"
 
-STATICFILES_DIRS = (os.path.join(ROOT,'assets'),)
+# STATICFILES_DIRS = (os.path.join(ROOT,'assets'),)
 
 
 STATICFILES_DIRS = [os.path.normpath(os.path.join(ROOT, "..", "survey", "static"))
@@ -156,8 +134,8 @@ INSTALLED_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    "survey",
-    
+    "survey", 
+    "bootstrapform",
 )
 
 LOCALE_PATHS = (os.path.join(ROOT, "survey", "locale"),)
@@ -192,4 +170,3 @@ LOGGING = {
         }
     },
 }
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "OHL.settings")
