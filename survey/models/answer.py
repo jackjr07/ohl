@@ -48,12 +48,15 @@ class Answer(models.Model):
 
     @property
     def values(self):
-        if len(self.body) < 3 or self.body[0:3] != "[u'":
+        if self.body is None:
+            return [None]
+        if self.body and (len(self.body) < 3 or self.body[0:3] != "[u'"):
             return [self.body]
         #  We do not use eval for security reason but it could work with :
         #  eval(self.body)
         #  It would permit to inject code into answer though.
         values = []
+     #   if not self.body == None:
         raw_values = self.body.split("', u'")
         nb_values = len(raw_values)
         for i, value in enumerate(raw_values):

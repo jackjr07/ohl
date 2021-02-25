@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-
+import codecs
 import logging
+
+from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -10,6 +13,8 @@ LOGGER = logging.getLogger(__name__)
 
 
 class Survey2Csv(Survey2X):
+    EXCEL_HACK = '"sep=,"'
+
     @staticmethod
     def line_list_to_string(line):
         """ Write a line in the CSV. """
