@@ -63,7 +63,7 @@ strictyaml==1.0.6
 termcolor==1.1.0
 texttable==1.6.2
 translationstring==1.3
-urllib3==1.24.2
+urllib3==1.26.5
 venusian==3.0.0
 waitress==1.4.3
 wcwidth==0.1.8
