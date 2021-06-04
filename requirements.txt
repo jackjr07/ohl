@@ -18,7 +18,7 @@ devpi-common==3.4.0
 devpi-postgresql==1.1.0
 devpi-server==5.4.0
 dj-database-url==0.5.0
-Django==3.0.7
+Django==3.1.9
 django-heroku==0.3.1
 docker==4.2.0
 docker-compose==1.25.4
